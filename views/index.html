@@ -15,17 +15,32 @@
     <title>Mutes front-end</title>
   </head>
   <body class="container">
-    <div class="test col-sm-11 col-sm-offset-2">
-      <nav class="navbar navbar-default">
+    <div class="col-sm-8 col-sm-offset-2">
+      <nav class="navbar navbar-light">
         <a class="navbar-brand" href="/">Mutably Front-end</a>
       </nav>
+
       <div class="text-center">
         <button type="button" class="booksBtn btn btn-primary">Get Books</button>
       </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">Books!</div>
-        <ul class="list-group">
-          <!-- resources go here -->
+
+      <!-- TODO: New Book form -->
+
+      <div class="card">
+        <div class="text-center card-header">All the books!</div>
+        <ul class="text-center list-group">
+
+          <li class="text-center">
+            <span class="book-title">Title: Around the World</span>
+            <img class="rounded mx-auto d-block" width="229" alt="TODO" src="https://cloud.githubusercontent.com/assets/7833470/10892118/865bee3e-8156-11e5-9634-cd7bcd3d6d4f.jpg">
+            <span class="book-author">Author: Jules Verne</span><br>
+            <span class="book-release">Release Data: Janurary 30, 1873</span>
+            <div class="card-buttons">
+              <button type="button" class="editBtn btn btn-info">Edit</button>
+              <button type="button" class="deleteBtn btn btn-danger">Delete</button>
+            </div>
+          </li>
+
         </ul>
       </div>
     </div>

@@ -13,5 +13,10 @@ $(document).ready(function(){
 }) // end ready
 
 populateList = (data) => {
-  console.log(data)
+  let listHTML
+  const ul = $('.list-group')
+
+  // data.books.forEach(book => {
+
+  // })
 }
