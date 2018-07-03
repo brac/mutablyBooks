@@ -13,8 +13,14 @@ $(document).ready(function(){
 }) // end ready
 
 populateList = (data) => {
-  let listHTML = ''
+  const resultHTML = parseBooks(data)
   const ul = $('.list-group')
+
+  ul.html(resultHTML)
+}
+
+parseBooks = (data) => {
+  let listHTML = ''
 
   data.books.forEach(book => {
     listHTML += `<div class="card mb-5" style="width: 18rem;">`
@@ -24,9 +30,28 @@ populateList = (data) => {
     listHTML += `<h6 class="card-subtitle mb-2 text-muted">${book.author}</h6>`
     listHTML += `<p class="card-text">${book.releaseDate}</p>`
     listHTML += `<div class="card-buttons">`
-    listHTML += `<button type="button" class="mr-2 mb-3 editBtn btn btn-info">Edit</button>`
-    listHTML += `<button type="button" class="ml-2 mb-3 deleteBtn btn btn-danger">Delete</button>`
+    listHTML += `<button type="button" class="mr-2 mb-3 editBtn btn btn-info" data-id="${book._id}">Edit</button>`
+    listHTML += `<button type="button" class="d-none mr-2 mb-3 saveBtn btn btn-success" data-saveId="${book._id}">Save</button>`
+    listHTML += `<button type="button" class="ml-2 mb-3 deleteBtn btn btn-danger" data-deleteId="${book._id}">Delete</button>`
     listHTML += `</div></div></div>`
   })
-  ul.html(listHTML)
+  return listHTML
 }
+
+$(document).on('click', '.editBtn', function()  {
+  const id = $(this).data('id')
+  console.log(id)
+  // $(this).addClass('d-none')
+  // $(`.${}`)
+
+})
+
+$(document).on('click', '.deleteBtn', function()  {
+  const id = $(this).data('deleteId')
+  console.log(`I will delete ${id}`)
+})
+
+$(document).on('click', '.saveBtn', function()  {
+  const id = $(this).data('saveId')
+  console.log(`I will save ${id}`)
+})
