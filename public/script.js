@@ -106,13 +106,17 @@ $(document).on('click', '.editBtn', function()  {
 
 $(document).on('click', '.saveBtn', function()  {
   const id = $(this).data('id')
+  let data = {}
 
-  // gather the new data from the fields
+  // gather the new data from the fields, since we have to test the
+      // fields for content, .serialize() is not good
   const form = $(`[data-edit-id="${id}"]`)
-  let data = form.serialize()
 
-  // Get the image link for the current card, append it to the new data
-  data += `&image=${$(form).siblings('img.card-img-top').attr('src')}`
+  // Incllude the image link for the current card
+  data.image = $(form).siblings('img.card-img-top').attr('src')
+  data.title = ($(form[0][0]).val() === '') ? $(form[0][0]).attr('placeholder') : $(form[0][0]).val()
+  data.author = ($(form[0][1]).val() === '') ? $(form[0][1]).attr('placeholder') : $(form[0][1]).val()
+  data.releaseDate = ($(form[0][2]).val() === '') ? $(form[0][2]).attr('placeholder') : $(form[0][2]).val()
 
   // Save data to online database
   $.ajax({

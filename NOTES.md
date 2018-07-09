@@ -31,6 +31,15 @@ What did you do to get this deployed to Heroku?
 How do I trigger a form to reset to it's defualt value.
   This is two parts. First you want to get at the document elements `.reset()` method, which will reset the form back to it's starting state. However in this project we are using jquery and as such we will be selecting the element as a jq object. So the methods are different, to fire that `.reset()` method we can `.trigger()` it with jquery like so: `$(.my-form).trigger('reset)`
 
+How do I add a license to my project?
+  This is eaisly done with GitHub. Create a new file in your root directory, name it LICENSE and click the new button 'License Templates'. Choose the one you want and bam.
+
+How do I start a new Heroku deployment?
+```bash
+heroku create
+git remote -v #for confirmation
+git push heroku master
+```
 
 ### Plan:
   * Get the app running locally
@@ -73,8 +82,9 @@ How do I trigger a form to reset to it's defualt value.
   * Create Form
   * Create Item
 
-  - Use MIT Lisense
-  - Deploy to Heroku
+  * Use MIT Lisense
+  * Deploy to Heroku
+  - Save bug
   - README.md
 
   - React
