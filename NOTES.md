@@ -112,6 +112,6 @@ git push heroku master
       On edit click
     * D: User can delete item via delet button next to each. No page refresh
     * Use UI Library
-    - Use MIT Lisense
-    - Deploy to Heroku
+    * Use MIT Lisense
+    * Deploy to Heroku
 
