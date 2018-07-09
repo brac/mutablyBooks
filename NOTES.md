@@ -84,7 +84,7 @@ git push heroku master
 
   * Use MIT Lisense
   * Deploy to Heroku
-  - Save bug
+  * Save bug
   - README.md
 
   - React
