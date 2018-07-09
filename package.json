@@ -1,10 +1,6 @@
 {
   "name": "mutably-starter",
   "version": "0.0.2",
-  "engines": {
-    "node": "10.0.0",
-    "npm": "6.1.0"
-  },
   "description": "",
   "main": "server.js",
   "scripts": {
