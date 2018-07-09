@@ -16,7 +16,24 @@ $(document).ready(function(){
       success: getBooks
     }) // end $ajax
   }) // end on click
+
+  $('#new-book-form').on('submit', function(e) {
+    e.preventDefault()
+    const newBookData = $(this).serialize()
+    addNewBook(newBookData)
+  })
 }) // end ready
+
+
+addNewBook = (newBookData) => {
+  $.ajax({
+    type: 'POST',
+    url: 'https://quiet-ravine-87109.herokuapp.com/books',
+    data: newBookData,
+    success: getBooks
+  })
+}
+
 
 populateList = (data) => {
   const resultHTML = parseBooks(data)

@@ -43,33 +43,33 @@
         <div class="container col">
           <div class="container border rounded">
             <h4 class="text-center mt-3">Add a book</h4>
-            <form>
+            <form id="new-book-form">
               <div class="form-group">
                 <label for="newBookTitle">Book Title</label>
-                <input type="text" class="form-control" id="newBookTitle" placeholder="Ex: Fire Upon the Deep" aria-describedby="newBookHelp">
+                <input name="title" type="text" class="form-control" id="newBookTitle" placeholder="Ex: Fire Upon the Deep" aria-describedby="newBookHelp">
                 <small id="newBookHelp" class="form-text text-muted">Enter the title of a new book</small>
               </div> <!-- end form-group -->
 
               <div class="form-group">
                 <label for="newBookAuthor">Author</label>
-                <input type="text" class="form-control" id="newBookAuthor" placeholder="Ex: Vernor Vinge" aria-describedby="newBookAuthorHelp">
+                <input name="author" type="text" class="form-control" id="newBookAuthor" placeholder="Ex: Vernor Vinge" aria-describedby="newBookAuthorHelp">
                 <small id="newBookAuthorHelp" class="form-text text-muted">Full name of the Author(s)</small>
               </div> <!-- end form-group -->
 
               <div class="form-group">
                 <label for="newBookImg">Image</label>
-                <input type="text" class="form-control" id="newBookImg" placeholder="Ex: https://upload.wikimedia.org/wikipedia/en/4/4a/A_Fire_Upon_the_Deep.bookcover.jpg" aria-describedby="newBookImgHelp">
+                <input name="image" type="text" class="form-control" id="newBookImg" placeholder="Ex: https://upload.wikimedia.org/wikipedia/en/4/4a/A_Fire_Upon_the_Deep.bookcover.jpg" aria-describedby="newBookImgHelp">
                 <small id="newBookImgHelp" class="form-text text-muted">Link to book graphic</small>
               </div> <!-- end form-group -->
 
-                <div class="form-group">
+              <div class="form-group">
                 <label for="newBookReleaseDate">Image</label>
-                <input type="text" class="form-control" id="newBookReleaseDate" placeholder="Ex: 1992" aria-describedby="newBookReleaseDateHelp">
+                <input name="releaseDate" type="text" class="form-control" id="newBookReleaseDate" placeholder="Ex: 1992" aria-describedby="newBookReleaseDateHelp">
                 <small id="newBookReleaseDateHelp" class="form-text text-muted">Date Originally Published</small>
               </div> <!-- end form-group -->
 
               <div class="container text-center mb-4">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary new-book-submit">Submit</button>
               </div>
             </form> <!-- end form -->
           </div>
