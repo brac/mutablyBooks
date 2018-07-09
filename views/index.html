@@ -14,58 +14,71 @@
     <script type="text/javascript" src="/script.js"></script>
     <title>Mutes front-end</title>
   </head>
+
   <body class="container">
-    <div class="col-sm-8 col-sm-offset-2">
 
-      <div class="container">
-        <nav class="navbar">
-          <a class="navbar-brand" href="/">Mutes Front End!</a>
-        </nav>
-      </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <nav class="navbar">
+            <a class="navbar-brand" href="/">Mutes Front End!</a>
+          </nav>
+        </div>
 
-      <div>
-        <button type="button" class="resetBtn btn btn-primary mb-3">Reset</button>
-      </div>
-
-      <div class="container border rounded mb-4">
-        <h4 class="text-center mt-3">Add a book</h4>
-        <form>
-          <div class="form-group">
-            <label for="newBookTitle">Book Title</label>
-            <input type="text" class="form-control" id="newBookTitle" placeholder="Ex: Fire Upon the Deep" aria-describedby="newBookHelp">
-            <small id="newBookHelp" class="form-text text-muted">Enter the title of a new book</small>
-          </div> <!-- end form-group -->
-
-          <div class="form-group">
-            <label for="newBookAuthor">Author</label>
-            <input type="text" class="form-control" id="newBookAuthor" placeholder="Ex: Vernor Vinge" aria-describedby="newBookAuthorHelp">
-            <small id="newBookAuthorHelp" class="form-text text-muted">Full name of the Author(s)</small>
-          </div> <!-- end form-group -->
-
-          <div class="form-group">
-            <label for="newBookImg">Image</label>
-            <input type="text" class="form-control" id="newBookImg" placeholder="Ex: https://upload.wikimedia.org/wikipedia/en/4/4a/A_Fire_Upon_the_Deep.bookcover.jpg" aria-describedby="newBookImgHelp">
-            <small id="newBookImgHelp" class="form-text text-muted">Link to book graphic</small>
-          </div> <!-- end form-group -->
-
-            <div class="form-group">
-            <label for="newBookReleaseDate">Image</label>
-            <input type="text" class="form-control" id="newBookReleaseDate" placeholder="Ex: 1992" aria-describedby="newBookReleaseDateHelp">
-            <small id="newBookReleaseDateHelp" class="form-text text-muted">Date Originally Published</small>
-          </div> <!-- end form-group -->
-
-          <div class="container text-center mb-4">
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="col">
+          <div class="container mt-2">
+            <button type="button" class="resetBtn btn btn-primary mb-3">Reset</button>
           </div>
-        </form> <!-- end form -->
+        </div>
       </div>
-
-
-
-      <ul class="list-unstyled text-center list-group">
-
-      </ul>
-
     </div>
+
+
+    <div class="container">
+      <div class="row">
+        <ul class="list-unstyled text-center list-group col">
+
+        </ul>
+
+        <div class="container col">
+          <div class="container border rounded">
+            <h4 class="text-center mt-3">Add a book</h4>
+            <form>
+              <div class="form-group">
+                <label for="newBookTitle">Book Title</label>
+                <input type="text" class="form-control" id="newBookTitle" placeholder="Ex: Fire Upon the Deep" aria-describedby="newBookHelp">
+                <small id="newBookHelp" class="form-text text-muted">Enter the title of a new book</small>
+              </div> <!-- end form-group -->
+
+              <div class="form-group">
+                <label for="newBookAuthor">Author</label>
+                <input type="text" class="form-control" id="newBookAuthor" placeholder="Ex: Vernor Vinge" aria-describedby="newBookAuthorHelp">
+                <small id="newBookAuthorHelp" class="form-text text-muted">Full name of the Author(s)</small>
+              </div> <!-- end form-group -->
+
+              <div class="form-group">
+                <label for="newBookImg">Image</label>
+                <input type="text" class="form-control" id="newBookImg" placeholder="Ex: https://upload.wikimedia.org/wikipedia/en/4/4a/A_Fire_Upon_the_Deep.bookcover.jpg" aria-describedby="newBookImgHelp">
+                <small id="newBookImgHelp" class="form-text text-muted">Link to book graphic</small>
+              </div> <!-- end form-group -->
+
+                <div class="form-group">
+                <label for="newBookReleaseDate">Image</label>
+                <input type="text" class="form-control" id="newBookReleaseDate" placeholder="Ex: 1992" aria-describedby="newBookReleaseDateHelp">
+                <small id="newBookReleaseDateHelp" class="form-text text-muted">Date Originally Published</small>
+              </div> <!-- end form-group -->
+
+              <div class="container text-center mb-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form> <!-- end form -->
+          </div>
+        </div> <!-- create book form -->
+      </div>
+    </div>
+
+
+
+
   </body>
 </html>
