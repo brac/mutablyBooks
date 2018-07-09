@@ -1,13 +1,6 @@
 // jshint asi:true
-console.log("Sanity Check: JS is working!");
-
 $(document).ready(function(){
-  $.ajax({
-    type: 'GET',
-    url: "https://quiet-ravine-87109.herokuapp.com/books",
-    dataType: 'json',
-    success: populateList
-  }) // end $ajax
+  getBooks()
 
   $('.resetBtn').on('click', () => {
     $.ajax({
@@ -30,10 +23,16 @@ addNewBook = (newBookData) => {
     type: 'POST',
     url: 'https://quiet-ravine-87109.herokuapp.com/books',
     data: newBookData,
-    success: getBooks
+    success: handleNewBook
   })
 }
 
+handleNewBook= (data) => {
+  if (data._id != '') {
+    $('#new-book-form').trigger('reset')
+    getBooks()
+  }
+}
 
 populateList = (data) => {
   const resultHTML = parseBooks(data)
@@ -70,32 +69,32 @@ parseBooks = (data) => {
     listHTML += `<form class="edit-form d-none" data-edit-id="${book._id}">`
     listHTML += `<div class="form-group">`
     listHTML += `<label for="book-title">Book Title</label>`
-    listHTML += `<input type="text" autocomplete="title" class="form-control" id="book-title" placeholder="${book.title}"">`
+    listHTML += `<input name="title" type="text" autocomplete="title" class="form-control" id="book-title" placeholder="${book.title}"">`
     listHTML += `</div>`
 
     listHTML += `<div class="form-group">`
     listHTML += `<label for="book-author">Author</label>`
-    listHTML += `<input type="text" autocomplete="name" class="form-control" id="book-author" placeholder="${book.author}">`
+    listHTML += `<input name="author" type="text" autocomplete="name" class="form-control" id="book-author" placeholder="${book.author}">`
     listHTML += `</div>`
 
     listHTML += `<div class="form-group">`
     listHTML += `<label for="book-releasedate">Release Date</label>`
-    listHTML += `<input type="text" autocomplete="date" class="form-control" id="book-releasedate" placeholder="${book.releaseDate}">`
+    listHTML += `<input name="releaseDate" type="text" autocomplete="date" class="form-control" id="book-releasedate" placeholder="${book.releaseDate}">`
     listHTML += `</div>`
     listHTML += `</form>`
     // end edit forms
 
-    listHTML += `<div class="card-buttons" data-id="${book._id}">`
-    listHTML += `<button type="button" class="mr-2 mb-3 editBtn btn btn-info">Edit</button>`
-    listHTML += `<button type="button" class="d-none mr-2 mb-3 saveBtn btn btn-success">Save</button>`
-    listHTML += `<button type="button" class="ml-2 mb-3 deleteBtn btn btn-danger">Delete</button>`
+    listHTML += `<div class="card-buttons mt-2">`
+    listHTML += `<button type="button" class="mr-2 mb-3 editBtn btn btn-info" data-id="${book._id}" >Edit</button>`
+    listHTML += `<button type="button" class="d-none mr-2 mb-3 saveBtn btn btn-success" data-id="${book._id}" >Save</button>`
+    listHTML += `<button type="button" class="ml-2 mb-3 deleteBtn btn btn-danger" data-id="${book._id}" >Delete</button>`
     listHTML += `</div></div>`
   })
   return listHTML
 }
 
 $(document).on('click', '.editBtn', function()  {
-  const id = $(this).parent().data('id')
+  const id = $(this).data('id')
   // hide current record and edit button
   $(this).addClass('d-none')
   $(`[data-cardtext-id="${id}"]`).addClass('d-none')
@@ -106,16 +105,14 @@ $(document).on('click', '.editBtn', function()  {
 })
 
 $(document).on('click', '.saveBtn', function()  {
-  const id = $(this).parent().data('id')
+  const id = $(this).data('id')
 
   // gather the new data from the fields
   const form = $(`[data-edit-id="${id}"]`)
-  const data = {}
+  let data = form.serialize()
 
-  data.image = $(form).siblings('img.card-img-top').attr('src')
-  data.title = ($(form[0][0]).val() === '') ? $(form[0][0]).attr('placeholder') : $(form[0][0]).val()
-  data.author = ($(form[0][1]).val() === '') ? $(form[0][1]).attr('placeholder') : $(form[0][1]).val()
-  data.releaseDate = ($(form[0][2]).val() === '') ? $(form[0][2]).attr('placeholder') : $(form[0][2]).val()
+  // Get the image link for the current card, append it to the new data
+  data += `&image=${$(form).siblings('img.card-img-top').attr('src')}`
 
   // Save data to online database
   $.ajax({
@@ -129,7 +126,7 @@ $(document).on('click', '.saveBtn', function()  {
 
 
 $(document).on('click', '.deleteBtn', function()  {
-  const id = $(this).parent().data('id')
+  const id = $(this).data('id')
 
   $.ajax({
     type: 'DELETE',
